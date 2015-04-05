@@ -126,7 +126,7 @@ function s:Lint(start, stop, show, flags)
 	let l:lines = getbufline(l:buffer, a:start, a:stop)
 
 	" save buffer hashbang flag
-	let l:hashbang = l:lines[0] == '#!/usr/bin/env node'
+	let l:hashbang = l:lines[0] =~ '^#!'
 
 	" confirm non javascript buffers
 	if g:jshint2_confirm && &filetype != 'javascript' && !l:hashbang &&
